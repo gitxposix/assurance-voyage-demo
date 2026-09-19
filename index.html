@@ -3,53 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Les Assurances Eduardo Soto Inc. — Nouveau site web</title>
+<title>Les Assurances Eduardo Soto Inc.</title>
 <style>
+:root{--navy:#073575;--blue:#0787d5;--cyan:#18afe0;--ink:#2c4a63;--line:#d8e9f4}
 *{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#f7fbff;color:#12315b}
-body{display:flex;min-height:100vh}
-.page{width:100%;min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff 50%,#edf8ff)}
-.content{width:min(1180px,92%);margin:auto;padding:48px 0 130px}
-.brand{font-size:24px;letter-spacing:.18em;color:#526c84;margin-bottom:4px}
-.company{font-size:42px;font-weight:800;color:#062f70;margin:0}
-.accent{width:138px;height:4px;background:#18aee2;margin:24px 0 34px}
-.main{display:grid;grid-template-columns:.92fr 1.08fr;gap:50px;align-items:center}
-.photo{min-height:510px;border-radius:32px;background:url("laesi_famille.png") center/cover no-repeat;box-shadow:0 18px 50px rgba(5,52,111,.14)}
-h1{font-size:62px;line-height:1;margin:0 0 20px;color:#062f70;letter-spacing:-.035em}
-h1 span{color:#087dcc}
-.lead{font-size:21px;line-height:1.45;color:#405a70;margin-bottom:30px}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{background:#fff;border:1px solid #dcebf4;border-radius:20px;padding:24px 14px;text-align:center;box-shadow:0 8px 24px rgba(5,52,111,.07)}
-.icon{font-size:38px;margin-bottom:12px} .card b{font-size:19px;color:#062f70}
-.card p{font-size:14px;line-height:1.35;color:#50697e;margin:12px 0 0}
-.contact{position:absolute;left:4%;right:4%;bottom:48px;background:rgba(255,255,255,.94);border:1px solid #d9eaf5;border-radius:24px;padding:20px 28px;display:grid;grid-template-columns:1fr 1.35fr 1.2fr;gap:22px;box-shadow:0 12px 35px rgba(5,52,111,.09)}
-.label{font-size:12px;color:#71889b;margin-bottom:5px} a{color:#062f70;font-weight:700;text-decoration:none}
-.waves{position:absolute;bottom:0;left:0;right:0;height:26px;background:linear-gradient(90deg,#218fd0,#19b8db,#b8ecf7)}
-@media(max-width:850px){
- body{display:block}.content{padding:28px 0 280px}.brand{font-size:16px}.company{font-size:29px}.main{grid-template-columns:1fr;gap:28px}
- .photo{min-height:330px;order:2}h1{font-size:44px}.products{grid-template-columns:1fr}.contact{grid-template-columns:1fr;bottom:38px;padding:18px 22px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f8fcff;color:var(--ink)}
+.page{min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(120deg,#fff 55%,#eef9ff);padding-bottom:150px}
+.wrap{width:min(1420px,94%);margin:auto;padding:38px 0 25px}
+.brand{font-size:24px;letter-spacing:.18em;color:#577087}
+.company{font-size:43px;font-weight:800;color:var(--navy);margin-top:4px}
+.line{width:140px;height:4px;background:var(--cyan);margin:25px 0 35px}
+.main{display:grid;grid-template-columns:.88fr 1.12fr;gap:50px;align-items:start}
+.family{height:590px;border-radius:34px;background:url("famille_eduardo_soto.jpg") center/cover no-repeat;box-shadow:0 16px 45px #07357520}
+h1{font-size:58px;line-height:1;margin:5px 0 18px;color:var(--navy);letter-spacing:-.035em}
+h1 span{color:var(--blue)}
+.lead{font-size:20px;line-height:1.45;margin:0 0 26px}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.group{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 24px;box-shadow:0 8px 25px #0735750e}
+.group h2{margin:0 0 16px;color:var(--navy);font-size:22px;padding-bottom:11px;border-bottom:3px solid var(--cyan)}
+.group ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.group li{font-size:16px;padding-left:18px;position:relative}
+.group li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);position:absolute;left:0;top:7px}
+.contact{position:absolute;bottom:48px;left:4%;right:4%;background:#fff;border:1px solid var(--line);border-radius:25px;padding:20px 28px;display:grid;grid-template-columns:1fr 1.35fr 1.15fr;gap:25px;box-shadow:0 10px 35px #07357515}
+.label{font-size:13px;color:#72889a;margin-bottom:5px}
+a{color:var(--navy);font-weight:bold;text-decoration:none}
+.waves{position:absolute;bottom:0;left:0;right:0;height:24px;background:linear-gradient(90deg,#218fd0,#1bbce1,#bceefa)}
+@media(max-width:900px){
+ .page{padding-bottom:290px}.wrap{padding-top:25px}.brand{font-size:16px}.company{font-size:29px}
+ .main{grid-template-columns:1fr;gap:28px}.family{height:390px}h1{font-size:43px}
+ .groups{grid-template-columns:1fr}.contact{grid-template-columns:1fr;bottom:38px}
 }
 </style>
 </head>
 <body>
 <div class="page">
-<div class="content">
+<div class="wrap">
   <div class="brand">LES ASSURANCES</div>
   <div class="company">EDUARDO SOTO INC.</div>
-  <div class="accent"></div>
+  <div class="line"></div>
+
   <div class="main">
-    <div class="photo" role="img" aria-label="Famille, couple avec deux enfants"></div>
+    <div class="family" role="img" aria-label="Famille, couple avec deux enfants"></div>
+
     <div>
       <h1>Nouveau site web<br><span>en construction</span></h1>
       <p class="lead">Nous travaillons actuellement sur notre nouveau site web afin de mieux vous servir.</p>
-      <div class="products">
-        <div class="card"><div class="icon">♡</div><b>Assurance de vie</b><p>Protégez ce qui compte le plus.</p></div>
-        <div class="card"><div class="icon">✚</div><b>Assurance de santé</b><p>Pour votre bien-être et celui de votre famille.</p></div>
-        <div class="card"><div class="icon">✈</div><b>Assurance de voyage</b><p>Voyagez en toute tranquillité.</p></div>
+
+      <div class="groups">
+        <section class="group">
+          <h2>Assurances de personnes</h2>
+          <ul>
+            <li>Vie</li>
+            <li>Invalidité</li>
+            <li>Maladie grave</li>
+            <li>Maladie complémentaire</li>
+            <li>Voyages</li>
+          </ul>
+        </section>
+
+        <section class="group">
+          <h2>Épargne</h2>
+          <ul>
+            <li>REER</li>
+            <li>CELI</li>
+            <li>CELIAPP</li>
+            <li>Compte d’épargne</li>
+            <li>Fonds distincts</li>
+            <li>REEE</li>
+            <li>Rentes de retraite</li>
+          </ul>
+        </section>
       </div>
     </div>
   </div>
 </div>
+
 <div class="contact">
   <div><div class="label">Téléphone</div><a href="tel:+15148234005">+1 (514) 823-4005</a></div>
   <div><div class="label">Courriel</div><a href="mailto:assurances@eduardosotoinc.com">assurances@eduardosotoinc.com</a></div>
@@ -57,4 +85,5 @@ h1 span{color:#087dcc}
 </div>
 <div class="waves"></div>
 </div>
-</body></html>
+</body>
+</html>

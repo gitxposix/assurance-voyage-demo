@@ -1,199 +1,60 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Assurance Voyager — Prototype comparateur</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Les Assurances Eduardo Soto Inc. — Nouveau site web</title>
 <style>
-:root{--b:#0868d8;--navy:#09245d;--sky:#eef7ff;--line:#d8e5f3;--green:#15945c;--orange:#e88a14;--red:#d94b48;--text:#17233d}
-*{box-sizing:border-box}body{margin:0;font:15px/1.42 Arial,sans-serif;color:var(--text);background:#f5f9fd}
-button,input,select{font:inherit}.wrap{max-width:1280px;margin:auto;padding:0 22px}
-header{background:white;border-bottom:1px solid var(--line)}header .wrap{height:72px;display:flex;align-items:center;gap:30px}
-.logo{font-size:22px;font-weight:800;color:var(--b)}nav{margin-left:auto;display:flex;gap:24px;align-items:center}.btn{border:0;border-radius:9px;background:var(--b);color:white;padding:11px 18px;cursor:pointer}.btn.alt{background:white;color:var(--b);border:1px solid var(--line)}
-.hero{background:linear-gradient(110deg,#fff,#e9f5ff);padding:30px 0}.homehero{background:linear-gradient(120deg,#eef8ff,#fff);padding:52px 0}.homegrid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}.homehero h1{font-size:50px;line-height:1.04;color:var(--navy);margin:0 0 15px}.accent{color:var(--b)}.travelart{min-height:320px;border-radius:24px;background:linear-gradient(150deg,#bfe8f7,#eef9ff 45%,#7dc7c4);position:relative;overflow:hidden}.travelart:before{content:'✈';position:absolute;font-size:55px;right:16%;top:18%;color:white}.travelart:after{content:'🏝️  Voyagez en toute confiance';position:absolute;left:8%;bottom:12%;font-size:21px;font-weight:800;color:var(--navy);background:#ffffffdd;padding:14px;border-radius:14px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:25px 0}.feature{text-align:center;background:white;border:1px solid var(--line);border-radius:13px;padding:16px}.feature i{font-style:normal;font-size:27px;display:block}.destinations{margin:28px 0;background:white;border:1px solid var(--line);border-radius:18px;padding:24px}.types{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}.type{text-align:center;padding:12px;background:#f5f9fd;border-radius:10px}.payment-grid{display:grid;grid-template-columns:1fr .8fr;gap:22px}.secure{padding:12px;background:#f0faf5;border:1px solid #c5e7d4;border-radius:9px}.total{font-size:28px;font-weight:800;color:var(--navy)}.hero h1{font-size:34px;color:var(--navy);margin:0 0 6px}.hero p{margin:0}
-.steps{display:flex;align-items:center;padding:22px 0;gap:8px}.step{display:flex;align-items:center;gap:8px;font-weight:700}.dot{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#9eb0c5;color:white}.done .dot,.active .dot{background:var(--b)}.connector{height:2px;flex:1;background:#b9d1eb}
-.screen{display:none}.screen.active{display:block}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:0 3px 14px #143b6510}.card h2,.card h3{color:var(--navy);margin-top:0}
-label{display:block;font-weight:700;margin:14px 0 6px}.field{width:100%;padding:11px;border:1px solid #cbd9e8;border-radius:8px;background:white}
-.actions{display:flex;justify-content:space-between;margin:24px 0 35px}.checks label{font-weight:400;display:flex;gap:9px;align-items:center}.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.summary b{display:block;color:var(--navy)}
-.broker{background:#eaf5ff;border:1px solid #bcd9f6;border-radius:16px;padding:18px}.broker-head{display:flex;justify-content:space-between;gap:20px}.notice{background:#dceeff;padding:12px 15px;border-radius:10px;max-width:480px}
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:18px}.flow-card{background:white;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:310px;position:relative}.flow-card:not(:last-child):after{content:"→";position:absolute;right:-15px;top:50%;font-size:25px;color:var(--b);z-index:2}.n{width:28px;height:28px;border-radius:50%;background:var(--b);color:white;display:grid;place-items:center;font-weight:bold;margin-bottom:8px}.flow-card:nth-child(5){border-color:#b7dfca;background:#f7fffa}.flow-card:nth-child(5) .n{background:var(--green)}
-.item{padding:8px 0;border-bottom:1px solid #edf1f5}.tag{font-size:12px;padding:3px 7px;border-radius:12px;background:#daf4e6;color:#087143}.warn{background:#fff0d8;color:#9a5b00}.bad{background:#ffe1df;color:#a42c27}
-.compare{width:100%;border-collapse:collapse;font-size:12px}.compare th,.compare td{border:1px solid #e0e8f1;padding:6px;text-align:center}.compare th:first-child,.compare td:first-child{text-align:left}
-.offer{border:1px solid #d9e5ef;border-radius:9px;padding:9px;margin:8px 0}.price{font-size:21px;font-weight:800;color:var(--navy)}
-.results{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.result{background:white;border:1px solid var(--line);border-radius:14px;padding:20px}.result.recommended{border:2px solid var(--b)}.pill{float:right;background:#dceeff;color:var(--b);padding:4px 8px;border-radius:10px;font-size:12px}
-.small{font-size:12px;color:#64758a}
-.help{margin-top:7px;padding:9px 11px;background:#f0f7ff;border-left:3px solid var(--b);border-radius:7px;font-size:12px;color:#496078}
-.helpbtn{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#dceeff;color:var(--b);font-size:11px;font-weight:bold;cursor:help;margin-left:4px}
-.preexisting{margin-top:12px;padding:14px;background:#fff9ed;border:1px solid #f0d7a7;border-radius:10px}
-.sortbar{display:flex;align-items:center;gap:10px;margin:15px 0}.sortbar select{max-width:260px}.hidden{display:none!important}
-.broker-progress{display:flex;gap:8px;margin:20px 0}.bp{flex:1;text-align:center;padding:10px 5px;border-radius:9px;background:#dbe8f4;color:#64758a;font-size:12px;font-weight:700}.bp.on{background:var(--b);color:#fff}.bp.ok{background:#dff3e8;color:#087143}
-.analysis-step{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;min-height:330px}.analysis-step.on{display:block}.decision{display:grid;grid-template-columns:1fr 1fr;gap:16px}.path-note{padding:12px;background:#f5f9fd;border-radius:9px;margin:12px 0}.analysis-actions{display:flex;justify-content:space-between;margin-top:20px}.choice{display:block;padding:11px;border:1px solid #dbe5ef;border-radius:8px;margin:8px 0;font-weight:400}.output{background:#f7fff9;border:1px solid #b7dfca;border-radius:12px;padding:16px}
-@media(max-width:900px){.broker-progress{overflow:auto}.bp{min-width:120px}.decision{grid-template-columns:1fr}}
-@media(max-width:900px){.homegrid,.payment-grid{grid-template-columns:1fr}.homehero h1{font-size:38px}.features{grid-template-columns:1fr 1fr}.types{grid-template-columns:1fr 1fr}.travelart{min-height:220px}nav{display:none}.grid3,.summary,.results{grid-template-columns:1fr}.flow{display:block}.flow-card{min-height:0;margin-bottom:14px}.flow-card:after{display:none}.hero h1{font-size:27px}.steps .step span:last-child{display:none}}
-.chat-fab{position:fixed;right:20px;bottom:20px;z-index:20;border:0;border-radius:28px;background:var(--navy);color:#fff;padding:13px 18px;font-weight:700;box-shadow:0 8px 25px #0003;cursor:pointer}.chatbox{position:fixed;right:20px;bottom:76px;width:330px;max-width:calc(100vw - 40px);z-index:21;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 12px 35px #0003;overflow:hidden}.chathead{background:var(--navy);color:#fff;padding:14px;font-weight:700}.chatbody{padding:14px;min-height:170px}.bubble{background:#eef6ff;border-radius:12px;padding:10px;margin-bottom:10px}.chatinput{display:flex;gap:7px;padding:10px;border-top:1px solid var(--line)}.chatinput input{flex:1}
-.subscribe-grid{display:grid;grid-template-columns:1fr .8fr;gap:20px}
-@media(max-width:900px){.subscribe-grid{grid-template-columns:1fr}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#f7fbff;color:#12315b}
+body{display:flex;min-height:100vh}
+.page{width:100%;min-height:100vh;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff 50%,#edf8ff)}
+.content{width:min(1180px,92%);margin:auto;padding:48px 0 130px}
+.brand{font-size:24px;letter-spacing:.18em;color:#526c84;margin-bottom:4px}
+.company{font-size:42px;font-weight:800;color:#062f70;margin:0}
+.accent{width:138px;height:4px;background:#18aee2;margin:24px 0 34px}
+.main{display:grid;grid-template-columns:.92fr 1.08fr;gap:50px;align-items:center}
+.photo{min-height:510px;border-radius:32px;background:url("laesi_famille.png") center/cover no-repeat;box-shadow:0 18px 50px rgba(5,52,111,.14)}
+h1{font-size:62px;line-height:1;margin:0 0 20px;color:#062f70;letter-spacing:-.035em}
+h1 span{color:#087dcc}
+.lead{font-size:21px;line-height:1.45;color:#405a70;margin-bottom:30px}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid #dcebf4;border-radius:20px;padding:24px 14px;text-align:center;box-shadow:0 8px 24px rgba(5,52,111,.07)}
+.icon{font-size:38px;margin-bottom:12px} .card b{font-size:19px;color:#062f70}
+.card p{font-size:14px;line-height:1.35;color:#50697e;margin:12px 0 0}
+.contact{position:absolute;left:4%;right:4%;bottom:48px;background:rgba(255,255,255,.94);border:1px solid #d9eaf5;border-radius:24px;padding:20px 28px;display:grid;grid-template-columns:1fr 1.35fr 1.2fr;gap:22px;box-shadow:0 12px 35px rgba(5,52,111,.09)}
+.label{font-size:12px;color:#71889b;margin-bottom:5px} a{color:#062f70;font-weight:700;text-decoration:none}
+.waves{position:absolute;bottom:0;left:0;right:0;height:26px;background:linear-gradient(90deg,#218fd0,#19b8db,#b8ecf7)}
+@media(max-width:850px){
+ body{display:block}.content{padding:28px 0 280px}.brand{font-size:16px}.company{font-size:29px}.main{grid-template-columns:1fr;gap:28px}
+ .photo{min-height:330px;order:2}h1{font-size:44px}.products{grid-template-columns:1fr}.contact{grid-template-columns:1fr;bottom:38px;padding:18px 22px}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div class="logo">◉ Assurance<br>Voyager</div><nav>Accueil　 Assurance voyage　 Nos conseils　 À propos <button class="btn">Nous contacter</button></nav></div></header>
-<section id="workflowHero" class="hero hidden"><div class="wrap"><h1>Comparez et trouvez la bonne assurance voyage</h1><p>Quelques étapes simples pour obtenir des options adaptées à votre voyage.</p></div></section>
-<section id="home" class="screen active"><div class="homehero"><div class="wrap homegrid"><div><div class="small">ASSURANCE VOYAGE • COMPARAISON SIMPLIFIÉE</div><h1>Comparez les assurances <span class="accent">voyage</span></h1><h2>Partez plus loin en toute tranquillité.</h2><p>Trouvez facilement une couverture adaptée et comparez les principales options en un seul endroit.</p><button class="btn" style="margin-top:18px;font-size:17px" onclick="startQuote()">Comparer maintenant →</button></div><div class="travelart"></div></div></div><div class="wrap"><div class="features"><div class="feature"><i>⌕</i><b>Comparez</b><br><span class="small">en un seul endroit</span></div><div class="feature"><i>🛡</i><b>Protections adaptées</b><br><span class="small">à vos besoins</span></div><div class="feature"><i>◉</i><b>Économisez</b><br><span class="small">temps et démarches</span></div><div class="feature"><i>☏</i><b>Accompagnement</b><br><span class="small">humain au besoin</span></div></div><div class="destinations"><h2>Peu importe votre destination, nous vous aidons à voyager en toute confiance.</h2><div class="types"><div class="type">✈️<br>Voyages loisirs</div><div class="type">👨‍👩‍👧<br>Voyages en famille</div><div class="type">💼<br>Voyages d’affaires</div><div class="type">👤<br>Voyageurs seniors</div><div class="type">🌎<br>Toutes destinations</div></div></div></div></section>
-<main class="wrap"><div id="mainSteps" class="steps hidden">
- <div class="step active" id="s1"><div class="dot">1</div><span>Votre voyage</span></div><div class="connector"></div>
- <div class="step" id="s2"><div class="dot">2</div><span>Voyageurs</span></div><div class="connector"></div>
- <div class="step" id="s3"><div class="dot">3</div><span>Besoins</span></div><div class="connector"></div>
- <div class="step" id="sb"><div class="dot">⚙</div><span>Espace courtier</span></div><div class="connector"></div>
- <div class="step" id="s4"><div class="dot">4</div><span>Résultats</span></div>
+<div class="page">
+<div class="content">
+  <div class="brand">LES ASSURANCES</div>
+  <div class="company">EDUARDO SOTO INC.</div>
+  <div class="accent"></div>
+  <div class="main">
+    <div class="photo" role="img" aria-label="Famille, couple avec deux enfants"></div>
+    <div>
+      <h1>Nouveau site web<br><span>en construction</span></h1>
+      <p class="lead">Nous travaillons actuellement sur notre nouveau site web afin de mieux vous servir.</p>
+      <div class="products">
+        <div class="card"><div class="icon">♡</div><b>Assurance de vie</b><p>Protégez ce qui compte le plus.</p></div>
+        <div class="card"><div class="icon">✚</div><b>Assurance de santé</b><p>Pour votre bien-être et celui de votre famille.</p></div>
+        <div class="card"><div class="icon">✈</div><b>Assurance de voyage</b><p>Voyagez en toute tranquillité.</p></div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<section id="p1" class="screen">
- <div class="card"><h2>Votre voyage</h2><div class="grid3">
- <div><label>Pays de résidence</label><select class="field"><option>Canada (Québec)</option></select></div>
- <div><label>Destination principale</label><select class="field"><option>France</option><option>États-Unis</option><option>Mexique</option></select></div>
- <div><label>Type de voyage</label><select class="field"><option>Touristique</option><option>Affaires</option><option>Visite familiale</option></select></div>
- <div><label>Date de départ</label><input class="field" type="date" value="2026-09-20"></div><div><label>Date de retour</label><input class="field" type="date" value="2026-10-05"></div>
- </div></div><div class="actions"><span></span><button class="btn" onclick="go('p2',2)">Continuer →</button></div>
-</section>
-
-<section id="p2" class="screen">
- <div class="card"><h2>Voyageurs</h2>
- <div><label>Nombre de voyageurs</label><input class="field" style="max-width:180px" value="2"></div>
- <div class="grid3">
-  <div><h3>Voyageur 1</h3><label>Prénom et nom</label><input class="field" value="Jean Tremblay"><label>Âge</label><input class="field" value="65"><label>Sexe</label><select class="field"><option>Homme</option><option>Femme</option><option>Autre / préfère ne pas préciser</option></select></div>
-  <div><h3>Voyageur 2</h3><label>Prénom et nom</label><input class="field" value="Marie Tremblay"><label>Âge</label><input class="field" value="62"><label>Sexe</label><select class="field"><option>Femme</option><option>Homme</option><option>Autre / préfère ne pas préciser</option></select></div>
- </div></div>
- <div class="actions"><button class="btn alt" onclick="go('p1',1)">← Retour</button><button class="btn" onclick="go('p3',3)">Continuer →</button></div>
-</section>
-
-<section id="p3" class="screen">
- <h2>Besoins et situation de chaque voyageur</h2>
- <p>Les couvertures et les conditions médicales sont analysées individuellement, car les besoins et l’admissibilité peuvent différer d’un voyageur à l’autre.</p>
- 
-  <div class="card traveler-needs">
-   <h3>Voyageur 1 — Jean Tremblay <span class="small">(65 ans)</span></h3>
-   <div class="grid3">
-    <div class="checks"><h3>Couvertures souhaitées</h3>
-     <label><input type="checkbox" checked> Soins médicaux d’urgence <span class="helpbtn" title="Frais médicaux imprévus et admissibles pendant le voyage.">?</span></label>
-     <label><input type="checkbox" checked> Annulation de voyage <span class="helpbtn" title="Certains frais non remboursables si le voyage doit être annulé pour une raison couverte.">?</span></label>
-     <label><input type="checkbox" checked> Bagages <span class="helpbtn" title="Protection selon le contrat en cas de perte, vol, dommage ou retard admissible.">?</span></label>
-     <label><input type="checkbox" checked> Assistance 24/7 <span class="helpbtn" title="Service d’assistance disponible pendant le voyage.">?</span></label>
-     <div class="help">Les protections sont sélectionnées individuellement pour ce voyageur afin de permettre au courtier d’analyser son profil séparément.</div>
-    </div>
-    <div>
-     <label>Condition médicale préexistante ?</label>
-     <select id="preSel1" class="field" onchange="togglePre(1)"><option value="yes">Oui</option><option value="no">Non</option><option value="broker">À discuter avec un courtier</option></select>
-     <div id="preBox1" class="preexisting">
-      <b>Conditions à signaler pour Jean Tremblay</b>
-      <p class="small">Sélection initiale pour l’analyse. La stabilité, les traitements et l’admissibilité devront être vérifiés selon le produit.</p>
-      <label><input type="checkbox"> Hypertension</label><label><input type="checkbox"> Diabète</label><label><input type="checkbox"> Maladie cardiaque</label><label><input type="checkbox"> Asthme / maladie respiratoire</label><label><input type="checkbox"> Cancer</label><label><input type="checkbox"> Autre condition</label>
-      <input class="field" placeholder="Préciser, si nécessaire">
-     </div>
-    </div>
-    <div>
-     <label>Niveau de couverture <span class="helpbtn" title="Étendue de protection recherchée pour ce voyageur.">?</span></label>
-     <select class="field"><option>Élevé</option><option>Standard</option></select>
-     <div class="help"><b>Niveau de couverture :</b> étendue de protection recherchée pour ce voyageur.</div>
-     <label>Franchise souhaitée <span class="helpbtn" title="Montant restant à la charge de l’assuré avant certaines protections.">?</span></label>
-     <select class="field"><option>Standard</option><option>0 $</option><option>250 $</option><option>500 $</option></select>
-     <div class="help"><b>Franchise :</b> montant qui reste à la charge de ce voyageur avant l’application de certaines garanties.</div>
-    </div>
-   </div>
-  </div>
-  <div class="card traveler-needs">
-   <h3>Voyageur 2 — Marie Tremblay <span class="small">(62 ans)</span></h3>
-   <div class="grid3">
-    <div class="checks"><h3>Couvertures souhaitées</h3>
-     <label><input type="checkbox" checked> Soins médicaux d’urgence <span class="helpbtn" title="Frais médicaux imprévus et admissibles pendant le voyage.">?</span></label>
-     <label><input type="checkbox" checked> Annulation de voyage <span class="helpbtn" title="Certains frais non remboursables si le voyage doit être annulé pour une raison couverte.">?</span></label>
-     <label><input type="checkbox" checked> Bagages <span class="helpbtn" title="Protection selon le contrat en cas de perte, vol, dommage ou retard admissible.">?</span></label>
-     <label><input type="checkbox" checked> Assistance 24/7 <span class="helpbtn" title="Service d’assistance disponible pendant le voyage.">?</span></label>
-     <div class="help">Les protections sont sélectionnées individuellement pour ce voyageur afin de permettre au courtier d’analyser son profil séparément.</div>
-    </div>
-    <div>
-     <label>Condition médicale préexistante ?</label>
-     <select id="preSel2" class="field" onchange="togglePre(2)"><option value="yes">Oui</option><option value="no">Non</option><option value="broker">À discuter avec un courtier</option></select>
-     <div id="preBox2" class="preexisting">
-      <b>Conditions à signaler pour Marie Tremblay</b>
-      <p class="small">Sélection initiale pour l’analyse. La stabilité, les traitements et l’admissibilité devront être vérifiés selon le produit.</p>
-      <label><input type="checkbox"> Hypertension</label><label><input type="checkbox"> Diabète</label><label><input type="checkbox"> Maladie cardiaque</label><label><input type="checkbox"> Asthme / maladie respiratoire</label><label><input type="checkbox"> Cancer</label><label><input type="checkbox"> Autre condition</label>
-      <input class="field" placeholder="Préciser, si nécessaire">
-     </div>
-    </div>
-    <div>
-     <label>Niveau de couverture <span class="helpbtn" title="Étendue de protection recherchée pour ce voyageur.">?</span></label>
-     <select class="field"><option>Élevé</option><option>Standard</option></select>
-     <div class="help"><b>Niveau de couverture :</b> étendue de protection recherchée pour ce voyageur.</div>
-     <label>Franchise souhaitée <span class="helpbtn" title="Montant restant à la charge de l’assuré avant certaines protections.">?</span></label>
-     <select class="field"><option>Standard</option><option>0 $</option><option>250 $</option><option>500 $</option></select>
-     <div class="help"><b>Franchise :</b> montant qui reste à la charge de ce voyageur avant l’application de certaines garanties.</div>
-    </div>
-   </div>
-  </div>
- <div class="actions"><button class="btn alt" onclick="go('p2',2)">← Retour</button><button class="btn" onclick="go('broker','b')">Analyser le dossier →</button></div>
-</section>
-
-<section id="broker" class="screen"><div class="broker">
-<div class="broker-head"><div><div class="small">ESPACE COURTIER — PROTOTYPE DE TRAVAIL</div><h2>Analyse du dossier</h2><p>Suivons le chemin de décision du courtier, une étape à la fois.</p></div><div class="notice"><b>Objectif</b><br>Valider avec le courtier les étapes, critères et décisions de son processus réel. Les assureurs, produits, règles et prix affichés sont fictifs.</div></div>
-<div class="summary card"><div><b>Voyage</b>Québec → France<br>15 jours</div><div><b>Voyageurs</b>Jean, 65 ans<br>Marie, 62 ans</div><div><b>Besoins</b>Définis par voyageur</div><div><b>Situation médicale</b>À analyser individuellement</div></div>
-<div class="broker-progress"><div class="bp on" id="bp1">1. Admissibilité</div><div class="bp" id="bp2">2. Assureurs</div><div class="bp" id="bp3">3. Produits</div><div class="bp" id="bp4">4. Comparaison</div><div class="bp" id="bp5">5. Options</div></div>
-
-<div id="a1" class="analysis-step on"><div class="n">1</div><h3>Vérifier l’admissibilité</h3><p>Quels éléments le courtier vérifie-t-il avant de chercher un produit?</p><div class="decision">
-<div><h3>Jean Tremblay — 65 ans</h3><label class="choice"><input type="checkbox" checked> Résidence admissible</label><label class="choice"><input type="checkbox" checked> Destination admissible</label><label class="choice"><input type="checkbox" checked> Durée admissible</label><label class="choice"><input type="checkbox"> Condition préexistante vérifiée</label></div>
-<div><h3>Marie Tremblay — 62 ans</h3><label class="choice"><input type="checkbox" checked> Résidence admissible</label><label class="choice"><input type="checkbox" checked> Destination admissible</label><label class="choice"><input type="checkbox" checked> Durée admissible</label><label class="choice"><input type="checkbox" checked> Situation médicale vérifiée</label></div></div>
-<div class="path-note"><b>À valider avec le courtier :</b> quelles autres vérifications sont nécessaires : âge, stabilité médicale, médicaments, destination, type de voyage, etc.?</div><div class="analysis-actions"><button class="btn alt" onclick="go('p3',3)">← Besoins</button><button class="btn" onclick="analysisGo(2)">Continuer →</button></div></div>
-
-<div id="a2" class="analysis-step"><div class="n">2</div><h3>Identifier les assureurs accessibles au courtier</h3><p><b>Il ne s’agit pas d’une liste des assureurs du Québec.</b> Le courtier indiquera ici les assureurs avec lesquels il peut réellement travailler.</p>
-<label class="choice"><input type="checkbox" checked> Assureur A <span class="tag">Exemple</span></label><label class="choice"><input type="checkbox" checked> Assureur B <span class="tag">Exemple</span></label><label class="choice"><input type="checkbox" checked> Assureur C <span class="tag">Exemple</span></label><label class="choice"><input type="checkbox"> Autre assureur</label>
-<div class="path-note"><b>Question au courtier :</b> avec quels assureurs travaillez-vous et comment déterminez-vous lesquels consulter pour un dossier donné?</div><div class="analysis-actions"><button class="btn alt" onclick="analysisGo(1)">← Admissibilité</button><button class="btn" onclick="analysisGo(3)">Continuer →</button></div></div>
-
-<div id="a3" class="analysis-step"><div class="n">3</div><h3>Identifier les produits admissibles</h3><p>À partir du profil des voyageurs et des assureurs accessibles, quels produits restent possibles?</p>
-<label class="choice"><input class="prod" data-name="Produit A — Protection Plus" type="checkbox" checked> Assureur A — Produit Protection Plus</label><label class="choice"><input class="prod" data-name="Produit B — Voyage Standard" type="checkbox" checked> Assureur B — Produit Voyage Standard</label><label class="choice"><input class="prod" data-name="Produit C — Protection Étendue" type="checkbox" checked> Assureur C — Produit Protection Étendue</label><label class="choice"><input class="prod" data-name="Produit A — Essentiel" type="checkbox"> Assureur A — Produit Essentiel</label>
-<div class="path-note"><b>À définir :</b> quelles règles éliminent ou conservent automatiquement un produit?</div><div class="analysis-actions"><button class="btn alt" onclick="analysisGo(2)">← Assureurs</button><button class="btn" onclick="analysisGo(4)">Comparer →</button></div></div>
-
-<div id="a4" class="analysis-step"><div class="n">4</div><h3>Comparer les conditions clés</h3><p>Le courtier compare les produits retenus selon les critères importants pour ce dossier.</p>
-<table class="compare"><tr><th>Critère fictif</th><th>Produit A</th><th>Produit B</th><th>Produit C</th></tr><tr><td>Couverture médicale</td><td>5 M$</td><td>5 M$</td><td>10 M$</td></tr><tr><td>Annulation</td><td>5 000 $</td><td>5 000 $</td><td>10 000 $</td></tr><tr><td>Bagages</td><td>1 500 $</td><td>1 500 $</td><td>2 000 $</td></tr><tr><td>Franchise</td><td>0 $</td><td>100 $</td><td>0 $</td></tr><tr><td>Prix démonstration</td><td>205 $</td><td>189 $</td><td>230 $</td></tr></table>
-<div class="path-note"><b>Question au courtier :</b> quels critères comparez-vous réellement et lesquels ont le plus d’importance selon le profil?</div><div class="analysis-actions"><button class="btn alt" onclick="analysisGo(3)">← Produits</button><button class="btn" onclick="analysisGo(5);renderGenerated()">Générer les options →</button></div></div>
-
-<div id="a5" class="analysis-step"><div class="n">5</div><h3>Options à présenter au client</h3><p>Résultat du chemin précédent. Le courtier conserve le contrôle des options qui seront présentées.</p><div id="generated" class="output"></div><div class="path-note"><b>Principe :</b> le système rassemble les alternatives issues des vérifications et sélections précédentes; il ne choisit pas à la place du courtier.</div><div class="analysis-actions"><button class="btn alt" onclick="analysisGo(4)">← Comparaison</button><button class="btn" onclick="makeResults();go('p4',4)">Présenter au client →</button></div></div>
-</div></section>
-
-<section id="p4" class="screen"><h2>Voici les options pour votre voyage</h2><p>Options préparées à partir de l’analyse du dossier.</p>
-<div class="sortbar"><b>Classer les résultats par :</b><select id="sortResults" class="field" onchange="makeResults()"><option value="price">Prix — du moins cher au plus cher</option><option value="coverage">Couverture — de la plus élevée à la plus standard</option></select></div>
-<div id="results" class="results"></div><div class="actions"><button class="btn alt" onclick="go('p1',1)">← Recommencer</button><span></span></div></section>
-<section id="subscription" class="screen">
- <h2>5. Souscription</h2><p>Vérifiez l’option choisie et complétez les informations nécessaires avant le paiement.</p>
- <div class="subscribe-grid">
-  <div class="card"><h3>Option sélectionnée</h3><div id="subProduct"></div><div class="total" id="subTotal">—</div><p class="small">Données et prix fictifs pour démonstration.</p><hr>
-   <h3>Souscripteur</h3><label>Nom complet</label><input class="field" value="Jean Tremblay"><label>Courriel</label><input class="field" type="email" placeholder="nom@exemple.ca"><label>Téléphone</label><input class="field" placeholder="514 000-0000">
-  </div>
-  <div class="card"><h3>Avant de continuer</h3><label class="choice"><input type="checkbox" checked> J’ai vérifié les voyageurs et les dates du voyage.</label><label class="choice"><input type="checkbox"> J’ai lu les principales couvertures, limites et exclusions présentées.</label><label class="choice"><input type="checkbox"> Je confirme que les renseignements fournis sont exacts.</label><div class="secure">Besoin d’aide? Utilisez « Chatter avec le courtier » pour poser une question avant de poursuivre.</div>
-   <button class="btn" style="width:100%;margin-top:15px" onclick="openPayment()">Continuer vers le paiement →</button>
-  </div>
- </div><div class="actions"><button class="btn alt" onclick="go('p4',4)">← Retour aux résultats</button><span></span></div>
-</section>
-
-<section id="payment" class="screen"><h2>6. Paiement</h2><p>Dernière étape de la démonstration.</p><div class="payment-grid"><div class="card"><h3>Informations de paiement</h3><label>Nom sur la carte</label><input class="field" value="Jean Tremblay"><label>Numéro de carte</label><input class="field" placeholder="•••• •••• •••• ••••"><div class="grid3"><div><label>Expiration</label><input class="field" placeholder="MM/AA"></div><div><label>CVV</label><input class="field" placeholder="•••"></div></div><label>Adresse de facturation</label><input class="field" placeholder="Adresse"><div class="grid3"><div><label>Ville</label><input class="field" value="Montréal"></div><div><label>Province</label><select class="field"><option>Québec</option></select></div><div><label>Code postal</label><input class="field" placeholder="A1A 1A1"></div></div><div class="secure">🔒 Démonstration seulement : aucune donnée bancaire n’est transmise ni enregistrée.</div></div><div class="card"><h3>Résumé du paiement</h3><div id="payProduct"></div><hr><p>Voyage : Québec → France<br>Voyageurs : Jean et Marie</p><hr><div class="total" id="payTotal">—</div><button class="btn" style="width:100%;margin-top:15px" onclick="demoPaid()">Payer et confirmer →</button><div id="paidMsg" class="secure hidden" style="margin-top:12px"><b>Démonstration terminée.</b><br>Dans la version réelle, le paiement sécurisé serait suivi de la confirmation et des documents de police.</div></div></div><div class="actions"><button class="btn alt" onclick="showSubscription()">← Retour à la souscription</button><span></span></div></section></main>
-<button class="chat-fab" onclick="toggleChat()">☏ Chatter avec le courtier</button>
-<div id="chatbox" class="chatbox hidden"><div class="chathead">Courtier — Assistance</div><div class="chatbody"><div class="bubble">Bonjour! Comment puis-je vous aider avec votre assurance voyage?</div><div id="chatMessages"></div><p class="small">Démonstration du canal de clavardage.</p></div><div class="chatinput"><input id="chatText" class="field" placeholder="Écrivez votre message…"><button class="btn" onclick="sendChat()">Envoyer</button></div></div>
-<script>
-const prices={"Produit A — Protection Plus":205,"Produit B — Voyage Standard":189,"Produit C — Protection Étendue":230,"Produit A — Essentiel":175};
-const coverage={"Produit A — Protection Plus":2,"Produit B — Voyage Standard":1,"Produit C — Protection Étendue":3,"Produit A — Essentiel":1};
-function money(n){return n+" $"}
-function selected(){return [...document.querySelectorAll('.prod:checked')].map(x=>x.dataset.name)}
-function renderGenerated(){let a=selected();document.getElementById('generated').innerHTML=a.length?a.map((n,i)=>`<div class="offer"><b>${n}</b><div class="price">${prices[n]?money(prices[n]):'—'}</div>${i===0?'<span class="tag">Option retenue</span>':''}</div>`).join(''):'<p>Aucune option sélectionnée.</p>'}
-document.querySelectorAll('.prod,.ins').forEach(x=>x.addEventListener('change',renderGenerated));renderGenerated();
-function startQuote(){document.getElementById('home').classList.remove('active');document.getElementById('workflowHero').classList.remove('hidden');document.getElementById('mainSteps').classList.remove('hidden');go('p1',1)}
-let chosenProduct=null;
-function chooseOffer(n){chosenProduct=n;document.getElementById('subProduct').innerHTML='<h3>'+n+'</h3>';document.getElementById('subTotal').textContent=money(prices[n]);showScreen('subscription');}
-function showScreen(id){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('mainSteps').classList.add('hidden');scrollTo({top:0,behavior:'smooth'});}
-function showSubscription(){showScreen('subscription')}
-function openPayment(){if(!chosenProduct)return;document.getElementById('payProduct').innerHTML='<h3>'+chosenProduct+'</h3>';document.getElementById('payTotal').textContent=money(prices[chosenProduct]);showScreen('payment')}
-function toggleChat(){document.getElementById('chatbox').classList.toggle('hidden')}
-function sendChat(){let i=document.getElementById('chatText');if(!i.value.trim())return;document.getElementById('chatMessages').innerHTML+='<div class="bubble"><b>Vous :</b> '+i.value.replace(/</g,'&lt;')+'</div>';i.value=''}
-function demoPaid(){document.getElementById('paidMsg').classList.remove('hidden')}
-function analysisGo(n){document.querySelectorAll('.analysis-step').forEach(x=>x.classList.remove('on'));document.getElementById('a'+n).classList.add('on');for(let i=1;i<=5;i++){let b=document.getElementById('bp'+i);b.className='bp'+(i<n?' ok':i===n?' on':'');}document.getElementById('broker').scrollIntoView({behavior:'smooth',block:'start'});}
-function go(id,n){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.step').forEach(x=>x.classList.remove('active','done'));let order=['s1','s2','s3','sb','s4'],ix=n==='b'?3:Number(n)-1;order.forEach((s,i)=>document.getElementById(s).classList.add(i<ix?'done':i===ix?'active':''));scrollTo({top:0,behavior:'smooth'})}
-function togglePre(n){document.getElementById('preBox'+n).classList.toggle('hidden',document.getElementById('preSel'+n).value!=='yes')}
-function makeResults(){let a=selected(),mode=document.getElementById('sortResults')?.value||'price';a.sort((x,y)=>mode==='price'?prices[x]-prices[y]:coverage[y]-coverage[x]||prices[x]-prices[y]);document.getElementById('results').innerHTML=a.map((n,i)=>`<div class="result ${i===0?'recommended':''}">${i===0?'<span class="pill">'+(mode==='price'?'Prix le plus bas':'Couverture la plus élevée')+'</span>':''}<h3>${n}</h3><div class="price">${money(prices[n])}</div><p>pour ce dossier</p><p>✓ Couverture médicale<br>✓ Assistance 24/7<br>✓ Détails et conditions à confirmer</p><button class="btn" onclick="chooseOffer(\`${n}\`)">Choisir cette offre →</button></div>`).join('')}
-</script>
+<div class="contact">
+  <div><div class="label">Téléphone</div><a href="tel:+15148234005">+1 (514) 823-4005</a></div>
+  <div><div class="label">Courriel</div><a href="mailto:assurances@eduardosotoinc.com">assurances@eduardosotoinc.com</a></div>
+  <div><div class="label">Adresse</div><b>1745 Rue Legardeur<br>Longueuil, QC J3Y 5E9</b></div>
+</div>
+<div class="waves"></div>
+</div>
 </body></html>
